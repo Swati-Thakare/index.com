@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>ITI COLLAGE DARYAPUR</title>
+    <style>
+        body {
+            font-family: Bernard MT Condensed, sans-serif;
+	    font-size:30px;
+            display: flex;
+            flex-direction: column;
+            align-items:center ;
+            justify-content: center;
+            height: 100vh;
+        }
+        #qrcode {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body background="iti.jpeg">
+    <h1>QR Code Generator</h1>
+    <input type="text" size="50" id="text" placeholder="Enter text to Generate QR code">
+    <button onclick="generateQRCode()"><font size="5">QR Code Generate</font></button>
+    <div id="qrcode"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        function generateQRCode() {
+            const text = document.getElementById('text').value;
+            if (text) {
+                document.getElementById('qrcode').innerHTML = '';
+                new QRCode(document.getElementById('qrcode'), text);
+            } else {
+                alert('Please enter some text to generate a QR code.');
+            }
+        }
+    </script>
+</body>
+</html>
